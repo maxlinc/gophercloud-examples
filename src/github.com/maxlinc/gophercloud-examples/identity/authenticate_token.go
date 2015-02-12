@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+  "os"
 	"github.com/rackspace/gophercloud"
 	"github.com/rackspace/gophercloud/rackspace"
-	"os"
 )
 
 func main() {
@@ -17,6 +17,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+  rackspace.NewIdentityV2(provider)
 
 	_, err = rackspace.NewComputeV2(provider, gophercloud.EndpointOpts{
 		Region: os.Getenv("RAX_REGION"),

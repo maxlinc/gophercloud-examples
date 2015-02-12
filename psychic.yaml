@@ -1,5 +1,7 @@
 ---
+options:
+  execution_strategy: tokens
 tasks:
   bootstrap: go get github.com/rackspace/gophercloud
-  run_script: go run {{script_file}}
+  run_script: go run -v {{script_file}}
 
