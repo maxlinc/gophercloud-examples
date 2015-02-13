@@ -19,8 +19,7 @@ func main() {
 		panic(err)
 	}
 
-	client, err := rackspace.NewNetworkV2(provider, gophercloud.EndpointOpts{
-		Name:   "cloudNetworks",
+	client, err := rackspace.NewComputeV2(provider, gophercloud.EndpointOpts{
 		Region: os.Getenv("RAX_REGION"),
 	})
 	if err != nil {
