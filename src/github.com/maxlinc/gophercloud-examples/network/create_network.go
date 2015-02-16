@@ -19,8 +19,7 @@ func main() {
 		panic(err)
 	}
 
-	client, err := rackspace.NewNetworkV2(provider, gophercloud.EndpointOpts{
-		Name:   "cloudNetworks",
+	client, err := rackspace.NewComputeV2(provider, gophercloud.EndpointOpts{
 		Region: os.Getenv("RAX_REGION"),
 	})
 	if err != nil {
@@ -29,7 +28,7 @@ func main() {
 
 	// We specify a name and that it should forward packets
 	opts := networks.CreateOpts{
-		Label: "sample_network",
+		Label: "{network_label}",
 		CIDR:  "192.0.2.0/24",
 	}
 
